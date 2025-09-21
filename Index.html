@@ -1,1 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Dhivani 🎉</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+    .container {
+      text-align: center;
+      color: #fff;
+      animation: fadeIn 2s ease-in-out;
+    }
+    h1 {
+      font-size: 3em;
+      margin: 0;
+      text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+    }
+    h2 {
+      font-size: 2em;
+      margin-top: 10px;
+    }
+    .heart {
+      color: red;
+      font-size: 2em;
+      animation: heartbeat 1.5s infinite;
+    }
+    @keyframes heartbeat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff6f61;
+      color: white;
+      font-size: 1em;
+      border-radius: 25px;
+      cursor: pointer;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #ff3b2e;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="confetti"></canvas>
+  <div class="container">
+    <h1>🎂 Happy Birthday 🎂</h1>
+    <h2>Dear <span style="color:yellow;">Dhivani Thakur</span> <span class="heart">❤</span></h2>
+    <p>You’re the most amazing friend! Wishing you endless happiness, love, and success on your special day. 🥳✨</p>
+    <button onclick="playMusic()">Play Birthday Song 🎶</button>
+  </div>
 
+  <audio id="song" src="https://www2.cs.uic.edu/~i101/SoundFiles/StarWars3.wav"></audio>
+
+  <script>
+    // Confetti Effect
+    const canvas = document.getElementById('confetti');
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const confettiPieces = [];
+    for (let i = 0; i < 150; i++) {
+      confettiPieces.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * 50,
+        color: `hsl(${Math.random() * 360}, 100%, 50%)`,
+        tilt: Math.random() * 10 - 10,
+      });
+    }
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confettiPieces.forEach((p, i) => {
+        ctx.beginPath();
+        ctx.fillStyle = p.color;
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2, true);
+        ctx.fill();
+      });
+      updateConfetti();
+    }
+
+    function updateConfetti() {
+      confettiPieces.forEach((p, i) => {
+        p.y += Math.cos(p.d) + 1 + p.r / 2;
+        p.x += Math.sin(p.d);
+
+        if (p.y > canvas.height) {
+          confettiPieces[i] = {
+            x: Math.random() * canvas.width,
+            y: -10,
+            r: p.r,
+            d: p.d,
+            color: p.color,
+            tilt: p.tilt,
+          };
+        }
+      });
+    }
+
+    setInterval(drawConfetti, 20);
+
+    // Play Music
+    function playMusic() {
+      const song = document.getElementById('song');
+      song.play();
+    }
+
+    // Resize canvas
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+  </script>
+</body>
+</html>
