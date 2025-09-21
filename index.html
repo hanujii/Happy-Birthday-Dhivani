@@ -41,20 +41,10 @@
         }
         
         @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(-100vh) rotate(360deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
         
         /* Main container */
@@ -100,28 +90,14 @@
         }
         
         @keyframes bounceIn {
-            0% {
-                transform: scale(0.3) translateY(-50px);
-                opacity: 0;
-            }
-            50% {
-                transform: scale(1.1);
-            }
-            100% {
-                transform: scale(1) translateY(0);
-                opacity: 1;
-            }
+            0% { transform: scale(0.3) translateY(-50px); opacity: 0; }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
         }
         
         @keyframes slideInUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
         }
         
         /* Decorative elements */
@@ -182,36 +158,12 @@
             animation: balloonFloat 6s ease-in-out infinite;
         }
         
-        .balloon:nth-child(1) { 
-            left: 10%; 
-            background: #FF69B4; 
-            animation-delay: 0s; 
-        }
-        .balloon:nth-child(2) { 
-            left: 25%; 
-            background: #FFD700; 
-            animation-delay: 1s; 
-        }
-        .balloon:nth-child(3) { 
-            left: 40%; 
-            background: #00CED1; 
-            animation-delay: 2s; 
-        }
-        .balloon:nth-child(4) { 
-            left: 55%; 
-            background: #FF6347; 
-            animation-delay: 3s; 
-        }
-        .balloon:nth-child(5) { 
-            left: 70%; 
-            background: #9370DB; 
-            animation-delay: 4s; 
-        }
-        .balloon:nth-child(6) { 
-            left: 85%; 
-            background: #32CD32; 
-            animation-delay: 5s; 
-        }
+        .balloon:nth-child(1) { left: 10%; background: #FF69B4; animation-delay: 0s; }
+        .balloon:nth-child(2) { left: 25%; background: #FFD700; animation-delay: 1s; }
+        .balloon:nth-child(3) { left: 40%; background: #00CED1; animation-delay: 2s; }
+        .balloon:nth-child(4) { left: 55%; background: #FF6347; animation-delay: 3s; }
+        .balloon:nth-child(5) { left: 70%; background: #9370DB; animation-delay: 4s; }
+        .balloon:nth-child(6) { left: 85%; background: #32CD32; animation-delay: 5s; }
         
         @keyframes balloonFloat {
             0%, 100% { transform: translateY(0px) rotate(-5deg); }
@@ -242,14 +194,8 @@
         .confetti-piece:nth-child(4n) { background: #FF6347; }
         
         @keyframes confettiFall {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
         }
         
         /* Click button */
@@ -274,216 +220,30 @@
             box-shadow: 0 15px 40px rgba(255, 105, 180, 0.6);
         }
 
-        /* Modal styles */
-        .modal {
-            display: none;
+        /* Floating Music Button */
+        .music-toggle {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1000;
-            animation: fadeIn 0.3s ease-out;
-        }
-
-        .modal.show {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Instagram-like carousel */
-        .carousel-container {
-            position: relative;
-            width: 400px;
-            height: 600px;
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-        }
-
-        .carousel-header {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            background: #fff;
-            border-bottom: 1px solid #dbdbdb;
-        }
-
-        .profile-pic {
-            width: 35px;
-            height: 35px;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             background: linear-gradient(45deg, #FF69B4, #FFD700);
-            margin-right: 10px;
+            border: none;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            color: #fff;
+            font-size: 24px;
+            cursor: pointer;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: #fff;
-            font-weight: bold;
+            z-index: 1100;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .username {
-            font-weight: 600;
-            color: #262626;
-            font-size: 14px;
-        }
-
-        .carousel-images {
-            position: relative;
-            width: 100%;
-            height: 400px;
-            overflow: hidden;
-        }
-
-        .carousel-image {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .carousel-image.active {
-            opacity: 1;
-        }
-
-        .carousel-indicators {
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-            gap: 4px;
-        }
-
-        .indicator {
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            background: #dbdbdb;
-            transition: all 0.3s ease;
-        }
-
-        .indicator.active {
-            background: #0095f6;
-            transform: scale(1.2);
-        }
-
-        .carousel-actions {
-            padding: 15px;
-            background: #fff;
-        }
-
-        .action-buttons {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 10px;
-        }
-
-        .action-btn {
-            background: none;
-            border: none;
-            font-size: 20px;
-            cursor: pointer;
-            color: #262626;
-            transition: transform 0.2s ease;
-        }
-
-        .action-btn:hover {
-            transform: scale(1.1);
-        }
-
-        .like-btn {
-            color: #ed4956;
-        }
-
-        .likes-count {
-            font-weight: 600;
-            font-size: 14px;
-            color: #262626;
-            margin-bottom: 5px;
-        }
-
-        .caption {
-            font-size: 14px;
-            color: #262626;
-            line-height: 1.4;
-        }
-
-        .username-caption {
-            font-weight: 600;
-            margin-right: 5px;
-        }
-
-        /* Heart animation */
-        .heart-animation {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 80px;
-            color: #ed4956;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 10;
-        }
-
-        .heart-animation.animate {
-            animation: heartPop 1s ease-out;
-        }
-
-        @keyframes heartPop {
-            0% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(0);
-            }
-            15% {
-                opacity: 1;
-                transform: translate(-50%, -50%) scale(1.2);
-            }
-            30% {
-                transform: translate(-50%, -50%) scale(0.95);
-            }
-            45% {
-                transform: translate(-50%, -50%) scale(1.1);
-            }
-            60% {
-                transform: translate(-50%, -50%) scale(1);
-            }
-            100% {
-                opacity: 0;
-                transform: translate(-50%, -50%) scale(1);
-            }
-        }
-
-        /* Close button */
-        .close-btn {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: rgba(255, 255, 255, 0.9);
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 20px;
-            cursor: pointer;
-            z-index: 1001;
-            transition: all 0.3s ease;
-        }
-
-        .close-btn:hover {
-            background: #fff;
-            transform: scale(1.1);
+        .music-toggle:hover {
+            transform: scale(1.15);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
         }
         
         /* Responsive design */
@@ -542,70 +302,35 @@
         </button>
     </div>
     
-    <!-- Instagram-style Modal -->
-    <div class="modal" id="photoModal">
-        <button class="close-btn" id="closeModal">×</button>
-        <div class="carousel-container">
-            <div class="carousel-header">
-                <div class="profile-pic">DT</div>
-                <div class="username">dhivani_thakur</div>
-            </div>
-            
-            <div class="carousel-images">
-                <img src="1.jpg" alt="Birthday Memory 1" class="carousel-image active">
-                <img src="2.jpg" alt="Birthday Memory 2" class="carousel-image">
-                <img src="3.jpg" alt="Birthday Memory 3" class="carousel-image">
-                <img src="4.jpg" alt="Birthday Memory 4" class="carousel-image">
-                <img src="5.jpg" alt="Birthday Memory 5" class="carousel-image">
-                
-                <div class="heart-animation" id="heartAnimation">❤️</div>
-            </div>
-            
-            <div class="carousel-indicators">
-                <div class="indicator active"></div>
-                <div class="indicator"></div>
-                <div class="indicator"></div>
-                <div class="indicator"></div>
-                <div class="indicator"></div>
-            </div>
-            
-            <div class="carousel-actions">
-                <div class="action-buttons">
-                    <button class="action-btn like-btn">❤️</button>
-                    <button class="action-btn">💬</button>
-                    <button class="action-btn">📤</button>
-                </div>
-                <div class="likes-count">❤️ 127 likes</div>
-                <div class="caption">
-                    <span class="username-caption">dhivani_thakur</span>
-                    Creating beautiful memories on my special day! 🎉✨ #BirthdayVibes #Blessed #AnotherYearOfAwesome
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
+    <!-- Floating Music Toggle Button -->
+    <button class="music-toggle" id="musicToggle">
+        <i class="fas fa-music"></i>
+    </button>
     
-    <!-- Audio element for background music -->
+    <!-- Audio element -->
     <audio id="birthdayMusic" loop>
-        <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
-        <!-- Fallback: We'll use a simple melody created with Web Audio API -->
+        <source src="birthday-song.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
     </audio>
-
+    
     <script>
-        // Image URLs for the carousel
-        const images = [
-            'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=400&fit=crop&crop=face',
-            'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face',
-            'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=400&fit=crop&crop=face',
-            'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face',
-            'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop&crop=face'
-        ];
-        
-        let currentImageIndex = 0;
-        let carouselInterval;
-        let isCarouselActive = false;
-        
-        // Create particles
+        // Music toggle
+        const music = document.getElementById("birthdayMusic");
+        const musicToggle = document.getElementById("musicToggle");
+        let isPlaying = false;
+
+        musicToggle.addEventListener("click", () => {
+            if (isPlaying) {
+                music.pause();
+                musicToggle.innerHTML = '<i class="fas fa-music"></i>';
+            } else {
+                music.play();
+                musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
+            }
+            isPlaying = !isPlaying;
+        });
+
+        // Particles
         function createParticles() {
             const particlesContainer = document.querySelector('.particles');
             for (let i = 0; i < 50; i++) {
@@ -618,8 +343,9 @@
                 particlesContainer.appendChild(particle);
             }
         }
-        
-        // Create confetti
+        createParticles();
+
+        // Confetti
         function createConfetti() {
             const confettiContainer = document.querySelector('.confetti');
             for (let i = 0; i < 100; i++) {
@@ -631,102 +357,7 @@
                 confettiContainer.appendChild(confetti);
             }
         }
-        
-        // Show heart animation
-        function showHeartAnimation() {
-            const heart = document.getElementById('heartAnimation');
-            heart.classList.add('animate');
-            
-            setTimeout(() => {
-                heart.classList.remove('animate');
-            }, 1000);
-        }
-        
-        // Update carousel
-        function updateCarousel() {
-            const images = document.querySelectorAll('.carousel-image');
-            const indicators = document.querySelectorAll('.indicator');
-            
-            // Hide all images
-            images.forEach(img => img.classList.remove('active'));
-            indicators.forEach(ind => ind.classList.remove('active'));
-            
-            // Show current image
-            images[currentImageIndex].classList.add('active');
-            indicators[currentImageIndex].classList.add('active');
-            
-            // Show heart animation
-            setTimeout(() => {
-                showHeartAnimation();
-            }, 500);
-        }
-        
-        // Start carousel
-        function startCarousel() {
-            carouselInterval = setInterval(() => {
-                currentImageIndex = (currentImageIndex + 1) % images.length;
-                updateCarousel();
-            }, 3000);
-        }
-        
-        // Stop carousel
-        function stopCarousel() {
-            if (carouselInterval) {
-                clearInterval(carouselInterval);
-            }
-        }
-        
-        // Open modal
-        function openModal() {
-            const modal = document.getElementById('photoModal');
-            modal.classList.add('show');
-            currentImageIndex = 0;
-            updateCarousel();
-            startCarousel();
-            isCarouselActive = true;
-        }
-        
-        // Close modal
-        function closeModal() {
-            const modal = document.getElementById('photoModal');
-            modal.classList.remove('show');
-            stopCarousel();
-            isCarouselActive = false;
-        }
-        
-        // Event listeners
-        document.getElementById('openCarousel').addEventListener('click', openModal);
-        document.getElementById('closeModal').addEventListener('click', closeModal);
-        
-        // Close modal when clicking outside
-        document.getElementById('photoModal').addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-        
-        // Initialize everything when page loads
-        document.addEventListener('DOMContentLoaded', function() {
-            createParticles();
-            createConfetti();
-            
-            // Add continuous confetti generation
-            setInterval(() => {
-                const confettiContainer = document.querySelector('.confetti');
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti-piece';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                confettiContainer.appendChild(confetti);
-                
-                // Remove confetti after animation
-                setTimeout(() => {
-                    if (confetti.parentNode) {
-                        confetti.parentNode.removeChild(confetti);
-                    }
-                }, 4000);
-            }, 200);
-        });
+        createConfetti();
     </script>
 </body>
 </html>
