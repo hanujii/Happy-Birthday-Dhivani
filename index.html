@@ -1,308 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Happy Birthday Dhivani! 🎉</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        /* Animated background particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .particle {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 50%;
-            animation: float 15s infinite linear;
-        }
-        
-        @keyframes float {
-            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
-        }
-        
-        /* Main container */
-        .container {
-            position: relative;
-            z-index: 10;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-            text-align: center;
-        }
-        
-        /* Main heading */
-        .main-title {
-            font-family: 'Dancing Script', cursive;
-            font-size: 4.5rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 20px;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
-            animation: bounceIn 2s ease-out;
-        }
-        
-        .name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, #FFD700, #FFA500, #FF69B4, #FFD700);
-            background-size: 400% 400%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: gradientShift 3s ease-in-out infinite, slideInUp 1.5s ease-out 0.5s both;
-            text-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
-        }
-        
-        @keyframes gradientShift {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        @keyframes bounceIn {
-            0% { transform: scale(0.3) translateY(-50px); opacity: 0; }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1) translateY(0); opacity: 1; }
-        }
-        
-        @keyframes slideInUp {
-            0% { transform: translateY(50px); opacity: 0; }
-            100% { transform: translateY(0); opacity: 1; }
-        }
-        
-        /* Decorative elements */
-        .cake-icon {
-            font-size: 8rem;
-            color: #FFD700;
-            margin: 30px 0;
-            animation: pulse 2s ease-in-out infinite, slideInUp 1.8s ease-out 1s both;
-            text-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-        }
-        
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-        
-        /* Wish message */
-        .wish-message {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(20px);
-            border-radius: 25px;
-            padding: 40px;
-            margin: 30px 0;
-            max-width: 600px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            animation: slideInUp 2s ease-out 1.5s both;
-        }
-        
-        .wish-text {
-            font-size: 1.3rem;
-            color: #fff;
-            line-height: 1.8;
-            font-weight: 300;
-            margin-bottom: 20px;
-        }
-        
-        .signature {
-            font-family: 'Dancing Script', cursive;
-            font-size: 1.8rem;
-            color: #FFD700;
-            font-weight: 600;
-        }
-        
-        /* Balloons */
-        .balloons {
-            position: fixed;
-            top: -100px;
-            width: 100%;
-            z-index: 5;
-        }
-        
-        .balloon {
-            position: absolute;
-            width: 80px;
-            height: 100px;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            animation: balloonFloat 6s ease-in-out infinite;
-        }
-        
-        .balloon:nth-child(1) { left: 10%; background: #FF69B4; animation-delay: 0s; }
-        .balloon:nth-child(2) { left: 25%; background: #FFD700; animation-delay: 1s; }
-        .balloon:nth-child(3) { left: 40%; background: #00CED1; animation-delay: 2s; }
-        .balloon:nth-child(4) { left: 55%; background: #FF6347; animation-delay: 3s; }
-        .balloon:nth-child(5) { left: 70%; background: #9370DB; animation-delay: 4s; }
-        .balloon:nth-child(6) { left: 85%; background: #32CD32; animation-delay: 5s; }
-        
-        @keyframes balloonFloat {
-            0%, 100% { transform: translateY(0px) rotate(-5deg); }
-            50% { transform: translateY(-30px) rotate(5deg); }
-        }
-        
-        /* Confetti */
-        .confetti {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 2;
-        }
-        
-        .confetti-piece {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #FFD700;
-            animation: confettiFall 3s linear infinite;
-        }
-        
-        .confetti-piece:nth-child(odd) { background: #FF69B4; }
-        .confetti-piece:nth-child(3n) { background: #00CED1; }
-        .confetti-piece:nth-child(4n) { background: #FF6347; }
-        
-        @keyframes confettiFall {
-            0% { transform: translateY(-100vh) rotate(0deg); opacity: 1; }
-            100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-        }
-        
-        /* Click button */
-        .click-button {
-            background: linear-gradient(45deg, #FF69B4, #FFD700);
-            border: none;
-            border-radius: 50px;
-            padding: 20px 40px;
-            color: #fff;
-            cursor: pointer;
-            font-size: 1.3rem;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
-            margin-top: 30px;
-            animation: slideInUp 2.2s ease-out 2s both;
-        }
-        
-        .click-button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.6);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
 
-        /* Floating Music Button */
-        .music-toggle {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #FF69B4, #FFD700);
-            border: none;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
-            color: #fff;
-            font-size: 24px;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1100;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+    h1 {
+      font-size: 3em;
+      color: white;
+      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+    }
 
-        .music-toggle:hover {
-            transform: scale(1.15);
-            box-shadow: 0 12px 35px rgba(0,0,0,0.5);
-        }
-        
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .main-title { font-size: 3rem; }
-            .name { font-size: 2.5rem; }
-            .cake-icon { font-size: 6rem; }
-            .wish-message { padding: 30px; margin: 20px; }
-            .wish-text { font-size: 1.1rem; }
-        }
-        
-        @media (max-width: 480px) {
-            .main-title { font-size: 2.5rem; }
-            .name { font-size: 2rem; }
-            .cake-icon { font-size: 5rem; }
-            .wish-message { padding: 25px; margin: 15px; }
-            .wish-text { font-size: 1rem; }
-        }
-    </style>
+    .click-button {
+      margin-top: 20px;
+      padding: 15px 25px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      background-color: #ff6f91;
+      color: white;
+      box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+      transition: transform 0.2s;
+    }
+
+    .click-button:hover {
+      transform: scale(1.1);
+    }
+
+    .carousel-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .carousel {
+      display: flex;
+      width: 500%;
+      animation: scroll 15s linear infinite;
+    }
+
+    .carousel-image {
+      position: relative;
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .carousel-image img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+
+    .heart {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
+      background-size: contain;
+      opacity: 0;
+      animation: like 3s infinite;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes like {
+      10% { opacity: 1; transform: scale(1.2); }
+      30% { opacity: 0; transform: scale(1); }
+    }
+
+    /* Floating Music Button */
+    #musicToggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: none;
+      background-color: #ff6f91;
+      color: white;
+      font-size: 1.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    #musicToggle:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
-    <!-- Background particles -->
-    <div class="particles"></div>
-    
-    <!-- Balloons -->
-    <div class="balloons">
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
-        <div class="balloon"></div>
+  <h1>Happy Birthday! 🎉</h1>
+  <button class="click-button" id="openCarousel">Click Here for Memories! ✨</button>
+
+  <!-- Carousel -->
+  <div class="carousel-overlay" id="carouselOverlay">
+    <div class="carousel" id="carousel">
+      <div class="carousel-image"><img src="1.jpg" alt="Memory 1"><div class="heart"></div></div>
+      <div class="carousel-image"><img src="2.jpg" alt="Memory 2"><div class="heart"></div></div>
+      <div class="carousel-image"><img src="3.jpg" alt="Memory 3"><div class="heart"></div></div>
+      <div class="carousel-image"><img src="4.jpg" alt="Memory 4"><div class="heart"></div></div>
+      <div class="carousel-image"><img src="5.jpg" alt="Memory 5"><div class="heart"></div></div>
     </div>
-    
-    <!-- Confetti -->
-    <div class="confetti"></div>
-    
-    <!-- Main content -->
-    <div class="container">
-        <h1 class="main-title">Happy Birthday</h1>
-        <h2 class="name">Dhivani Thakur</h2>
-        
-        <div class="cake-icon">🎂</div>
-        
-        <div class="wish-message">
-            <p class="wish-text">
-                May your special day be filled with happiness, laughter, and all the wonderful things you deserve! 
-                Here's to another year of amazing adventures, beautiful memories, and dreams coming true. 
-                You're not just getting older, you're getting more awesome! ✨
-            </p>
-            <p class="signature">With love and best wishes! 💕</p>
-        </div>
-        
-        <button class="click-button" id="openCarousel">
-            <i class="fas fa-images"></i> Click Here for Memories! ✨
-        </button>
-    </div>
-    
-    <!-- Floating Music Toggle Button -->
+  </div>
+
+  <!-- Music Player -->
+  <audio id="birthdayMusic" loop>
+    <source src="enna_sona.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  <!-- Floating Button -->
+  <button id="musicToggle">🎵</button>
+
+  <script>
+    // Open Carousel
+    document.getElementById("openCarousel").addEventListener("click", () => {
+      document.getElementById("carouselOverlay").style.display = "flex";
+    });
+
+    // Music Toggle
+    const music = document.getElementById("birthdayMusic");
+    const musicToggle = document.getElementById("musicToggle");
+    let isPlaying = false;
+
+    musicToggle.addEventListener("click", () => {
+      if (isPlaying) {
+        music.pause();
+        musicToggle.textContent = "🎵";
+      } else {
+        music.play();
+        musicToggle.textContent = "⏸️";
+      }
+      isPlaying = !isPlaying;
+    });
+  </script>
+</body>
+</html>- Floating Music Toggle Button -->
     <button class="music-toggle" id="musicToggle">
         <i class="fas fa-music"></i>
     </button>
