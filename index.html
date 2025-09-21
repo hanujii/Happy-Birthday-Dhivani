@@ -17,12 +17,13 @@
       background: linear-gradient(135deg, #ffdee9, #b5fffc);
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       min-height: 100vh;
-      overflow: hidden;
+      overflow-x: hidden;
       color: #333;
-      padding-bottom: 60px; /* space for bottom buttons */
+      padding-top: 50px;
+      padding-bottom: 120px; /* space for bottom buttons */
     }
 
     h1 {
@@ -51,7 +52,7 @@
       to { opacity: 1; }
     }
 
-    /* Click Here button - rounded rectangle */
+    /* Buttons */
     .click-btn {
       padding: 15px 35px;
       border-radius: 25px;
@@ -71,7 +72,6 @@
       box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
     }
 
-    /* Music button - circular */
     .music-btn {
       width: 60px;
       height: 60px;
@@ -92,6 +92,7 @@
       box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
     }
 
+    /* Carousel */
     .carousel {
       display: none;
       margin-top: 40px;
@@ -101,6 +102,15 @@
       overflow: hidden;
       position: relative;
       box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .carousel.show {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .carousel img {
@@ -138,14 +148,13 @@
 
     /* Bottom button container */
     .bottom-buttons {
-      position: fixed;
-      bottom: 20px;
+      position: relative;
       display: flex;
       gap: 20px;
       justify-content: center;
-      width: 100%;
+      margin-top: 20px;
+      z-index: 10;
     }
-
   </style>
 </head>
 <body>
@@ -178,14 +187,17 @@
     let interval;
     const music = document.getElementById("bg-music");
     const musicBtn = document.getElementById("musicBtn");
+    const carousel = document.getElementById("carousel");
 
     function startCarousel() {
-      const carousel = document.getElementById("carousel");
+      if (!carousel.classList.contains("show")) {
+        carousel.classList.add("show");
+      }
+
       const images = carousel.querySelectorAll("img");
       const heart = carousel.querySelector(".heart");
-      carousel.style.display = "block";
 
-      if(interval) return; // avoid multiple intervals
+      if (interval) return; // prevent multiple intervals
 
       interval = setInterval(() => {
         images[index].classList.remove("active");
@@ -194,13 +206,13 @@
 
         // Heart animation
         heart.style.animation = "none";
-        void heart.offsetWidth; // reset
+        void heart.offsetWidth; // reset animation
         heart.style.animation = "heartBeat 1s ease";
       }, 3000);
     }
 
     function toggleMusic() {
-      if(music.paused) {
+      if (music.paused) {
         music.play();
         musicBtn.textContent = "⏸️";
       } else {
@@ -212,7 +224,6 @@
     // Optional: autoplay music on load
     window.addEventListener('load', () => {
       music.play().catch(() => {
-        // autoplay blocked by browser
         musicBtn.textContent = "▶️";
       });
     });
