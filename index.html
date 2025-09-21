@@ -252,26 +252,238 @@
             }
         }
         
-        /* Music control */
-        .music-control {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        /* Click button */
+        .click-button {
+            background: linear-gradient(45deg, #FF69B4, #FFD700);
+            border: none;
             border-radius: 50px;
-            padding: 15px 25px;
+            padding: 20px 40px;
             color: #fff;
             cursor: pointer;
-            font-size: 1.1rem;
+            font-size: 1.3rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
             transition: all 0.3s ease;
-            z-index: 100;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
+            margin-top: 30px;
+            animation: slideInUp 2.2s ease-out 2s both;
         }
         
-        .music-control:hover {
-            background: rgba(255, 255, 255, 0.3);
-            transform: scale(1.05);
+        .click-button:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 105, 180, 0.6);
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            animation: fadeIn 0.3s ease-out;
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Instagram-like carousel */
+        .carousel-container {
+            position: relative;
+            width: 400px;
+            height: 600px;
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: #fff;
+            border-bottom: 1px solid #dbdbdb;
+        }
+
+        .profile-pic {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #FF69B4, #FFD700);
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .username {
+            font-weight: 600;
+            color: #262626;
+            font-size: 14px;
+        }
+
+        .carousel-images {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .carousel-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-image.active {
+            opacity: 1;
+        }
+
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            gap: 4px;
+        }
+
+        .indicator {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: #dbdbdb;
+            transition: all 0.3s ease;
+        }
+
+        .indicator.active {
+            background: #0095f6;
+            transform: scale(1.2);
+        }
+
+        .carousel-actions {
+            padding: 15px;
+            background: #fff;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
+
+        .action-btn {
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            color: #262626;
+            transition: transform 0.2s ease;
+        }
+
+        .action-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .like-btn {
+            color: #ed4956;
+        }
+
+        .likes-count {
+            font-weight: 600;
+            font-size: 14px;
+            color: #262626;
+            margin-bottom: 5px;
+        }
+
+        .caption {
+            font-size: 14px;
+            color: #262626;
+            line-height: 1.4;
+        }
+
+        .username-caption {
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        /* Heart animation */
+        .heart-animation {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            color: #ed4956;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .heart-animation.animate {
+            animation: heartPop 1s ease-out;
+        }
+
+        @keyframes heartPop {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0);
+            }
+            15% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.2);
+            }
+            30% {
+                transform: translate(-50%, -50%) scale(0.95);
+            }
+            45% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            60% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        /* Close button */
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 1001;
+            transition: all 0.3s ease;
+        }
+
+        .close-btn:hover {
+            background: #fff;
+            transform: scale(1.1);
         }
         
         /* Responsive design */
@@ -324,11 +536,53 @@
             </p>
             <p class="signature">With love and best wishes! 💕</p>
         </div>
+        
+        <button class="click-button" id="openCarousel">
+            <i class="fas fa-images"></i> Click Here for Memories! ✨
+        </button>
     </div>
     
-    <!-- Music control -->
-    <div class="music-control" id="musicControl">
-        <i class="fas fa-music"></i> Music: ON
+    <!-- Instagram-style Modal -->
+    <div class="modal" id="photoModal">
+        <button class="close-btn" id="closeModal">×</button>
+        <div class="carousel-container">
+            <div class="carousel-header">
+                <div class="profile-pic">DT</div>
+                <div class="username">dhivani_thakur</div>
+            </div>
+            
+            <div class="carousel-images">
+                <img src="1.jpg" alt="Birthday Memory 1" class="carousel-image active">
+                <img src="2.jpg" alt="Birthday Memory 2" class="carousel-image">
+                <img src="3.jpg" alt="Birthday Memory 3" class="carousel-image">
+                <img src="4.jpg" alt="Birthday Memory 4" class="carousel-image">
+                <img src="5.jpg" alt="Birthday Memory 5" class="carousel-image">
+                
+                <div class="heart-animation" id="heartAnimation">❤️</div>
+            </div>
+            
+            <div class="carousel-indicators">
+                <div class="indicator active"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+                <div class="indicator"></div>
+            </div>
+            
+            <div class="carousel-actions">
+                <div class="action-buttons">
+                    <button class="action-btn like-btn">❤️</button>
+                    <button class="action-btn">💬</button>
+                    <button class="action-btn">📤</button>
+                </div>
+                <div class="likes-count">❤️ 127 likes</div>
+                <div class="caption">
+                    <span class="username-caption">dhivani_thakur</span>
+                    Creating beautiful memories on my special day! 🎉✨ #BirthdayVibes #Blessed #AnotherYearOfAwesome
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
     
     <!-- Audio element for background music -->
@@ -338,6 +592,19 @@
     </audio>
 
     <script>
+        // Image URLs for the carousel
+        const images = [
+            'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=400&h=400&fit=crop&crop=face',
+            'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=400&h=400&fit=crop&crop=face',
+            'https://images.unsplash.com/photo-1488426862026-3ee34a7d66df?w=400&h=400&fit=crop&crop=face',
+            'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=400&h=400&fit=crop&crop=face',
+            'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop&crop=face'
+        ];
+        
+        let currentImageIndex = 0;
+        let carouselInterval;
+        let isCarouselActive = false;
+        
         // Create particles
         function createParticles() {
             const particlesContainer = document.querySelector('.particles');
@@ -365,73 +632,76 @@
             }
         }
         
-        // Create simple birthday melody using Web Audio API
-        let audioContext;
-        let musicPlaying = false;
-        
-        function createSimpleMelody() {
-            if (!audioContext) {
-                audioContext = new (window.AudioContext || window.webkitAudioContext)();
-            }
+        // Show heart animation
+        function showHeartAnimation() {
+            const heart = document.getElementById('heartAnimation');
+            heart.classList.add('animate');
             
-            // Happy Birthday melody (simplified)
-            const notes = [
-                { freq: 261.63, duration: 0.5 }, // C
-                { freq: 261.63, duration: 0.5 }, // C
-                { freq: 293.66, duration: 0.5 }, // D
-                { freq: 261.63, duration: 0.5 }, // C
-                { freq: 349.23, duration: 0.5 }, // F
-                { freq: 329.63, duration: 1.0 }, // E
-                { freq: 261.63, duration: 0.5 }, // C
-                { freq: 261.63, duration: 0.5 }, // C
-                { freq: 293.66, duration: 0.5 }, // D
-                { freq: 261.63, duration: 0.5 }, // C
-                { freq: 392.00, duration: 0.5 }, // G
-                { freq: 349.23, duration: 1.0 }, // F
-            ];
-            
-            let currentTime = audioContext.currentTime;
-            
-            notes.forEach(note => {
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
-                
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
-                
-                oscillator.frequency.setValueAtTime(note.freq, currentTime);
-                oscillator.type = 'sine';
-                
-                gainNode.gain.setValueAtTime(0, currentTime);
-                gainNode.gain.linearRampToValueAtTime(0.1, currentTime + 0.1);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, currentTime + note.duration);
-                
-                oscillator.start(currentTime);
-                oscillator.stop(currentTime + note.duration);
-                
-                currentTime += note.duration;
-            });
-            
-            // Repeat after the melody ends
             setTimeout(() => {
-                if (musicPlaying) {
-                    createSimpleMelody();
-                }
-            }, currentTime * 1000 - audioContext.currentTime * 1000 + 2000);
+                heart.classList.remove('animate');
+            }, 1000);
         }
         
-        // Music control
-        document.getElementById('musicControl').addEventListener('click', function() {
-            if (musicPlaying) {
-                musicPlaying = false;
-                this.innerHTML = '<i class="fas fa-music"></i> Music: OFF';
-                if (audioContext) {
-                    audioContext.suspend();
-                }
-            } else {
-                musicPlaying = true;
-                this.innerHTML = '<i class="fas fa-music"></i> Music: ON';
-                createSimpleMelody();
+        // Update carousel
+        function updateCarousel() {
+            const images = document.querySelectorAll('.carousel-image');
+            const indicators = document.querySelectorAll('.indicator');
+            
+            // Hide all images
+            images.forEach(img => img.classList.remove('active'));
+            indicators.forEach(ind => ind.classList.remove('active'));
+            
+            // Show current image
+            images[currentImageIndex].classList.add('active');
+            indicators[currentImageIndex].classList.add('active');
+            
+            // Show heart animation
+            setTimeout(() => {
+                showHeartAnimation();
+            }, 500);
+        }
+        
+        // Start carousel
+        function startCarousel() {
+            carouselInterval = setInterval(() => {
+                currentImageIndex = (currentImageIndex + 1) % images.length;
+                updateCarousel();
+            }, 3000);
+        }
+        
+        // Stop carousel
+        function stopCarousel() {
+            if (carouselInterval) {
+                clearInterval(carouselInterval);
+            }
+        }
+        
+        // Open modal
+        function openModal() {
+            const modal = document.getElementById('photoModal');
+            modal.classList.add('show');
+            currentImageIndex = 0;
+            updateCarousel();
+            startCarousel();
+            isCarouselActive = true;
+        }
+        
+        // Close modal
+        function closeModal() {
+            const modal = document.getElementById('photoModal');
+            modal.classList.remove('show');
+            stopCarousel();
+            isCarouselActive = false;
+        }
+        
+        // Event listeners
+        document.getElementById('openCarousel').addEventListener('click', openModal);
+        document.getElementById('closeModal').addEventListener('click', closeModal);
+        
+        // Close modal when clicking outside
+        document.getElementById('photoModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
             }
         });
         
@@ -439,12 +709,6 @@
         document.addEventListener('DOMContentLoaded', function() {
             createParticles();
             createConfetti();
-            
-            // Auto-start music after a short delay
-            setTimeout(() => {
-                musicPlaying = true;
-                createSimpleMelody();
-            }, 2000);
             
             // Add continuous confetti generation
             setInterval(() => {
