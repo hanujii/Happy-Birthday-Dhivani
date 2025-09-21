@@ -3,224 +3,166 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday</title>
+  <title>Happy Birthday Dhivani 🎉</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #ffdee9, #b5fffc);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
       overflow: hidden;
+      color: #333;
     }
 
     h1 {
-      font-size: 3em;
-      color: white;
-      text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 20px;
+      animation: fadeInDown 2s ease;
+      color: #444;
+      font-weight: 700;
     }
 
-    .click-button {
-      margin-top: 20px;
-      padding: 15px 25px;
-      font-size: 1.2em;
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      text-align: center;
+      animation: fadeIn 3s ease;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .click-btn {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
       border: none;
-      border-radius: 50px;
-      cursor: pointer;
-      background-color: #ff6f91;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
       color: white;
-      box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
-      transition: transform 0.2s;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: float 3s ease-in-out infinite;
     }
 
-    .click-button:hover {
+    .click-btn:hover {
       transform: scale(1.1);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
     }
 
-    .carousel-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      display: none;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
     }
 
     .carousel {
-      display: flex;
-      width: 500%;
-      animation: scroll 15s linear infinite;
-    }
-
-    .carousel-image {
+      display: none;
+      margin-top: 40px;
+      width: 350px;
+      height: 500px;
+      border-radius: 20px;
+      overflow: hidden;
       position: relative;
-      min-width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
     }
 
-    .carousel-image img {
+    .carousel img {
       width: 100%;
-      height: 100vh;
+      height: 100%;
       object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .carousel img.active {
+      opacity: 1;
     }
 
     .heart {
       position: absolute;
-      width: 100px;
-      height: 100px;
-      background: url('https://cdn-icons-png.flaticon.com/512/833/833472.png') no-repeat center;
-      background-size: contain;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      font-size: 80px;
+      color: rgba(255, 0, 85, 0.7);
       opacity: 0;
-      animation: like 3s infinite;
+      pointer-events: none;
+      animation: heartBeat 1s ease;
     }
 
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-100%); }
-    }
-
-    @keyframes like {
-      10% { opacity: 1; transform: scale(1.2); }
-      30% { opacity: 0; transform: scale(1); }
-    }
-
-    /* Floating Music Button */
-    #musicToggle {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: none;
-      background-color: #ff6f91;
-      color: white;
-      font-size: 1.5em;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      box-shadow: 0px 4px 8px rgba(0,0,0,0.3);
-      cursor: pointer;
-      transition: transform 0.2s;
-    }
-
-    #musicToggle:hover {
-      transform: scale(1.1);
+    @keyframes heartBeat {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
     }
   </style>
 </head>
 <body>
-  <h1>Happy Birthday! 🎉</h1>
-  <button class="click-button" id="openCarousel">Click Here for Memories! ✨</button>
+  <h1>Happy Birthday Dhivani 🎂✨</h1>
+  <p>Wishing you joy, love, and endless happiness on your special day 💖</p>
+
+  <!-- Click button -->
+  <button class="click-btn" onclick="startCarousel()">Click Here</button>
 
   <!-- Carousel -->
-  <div class="carousel-overlay" id="carouselOverlay">
-    <div class="carousel" id="carousel">
-      <div class="carousel-image"><img src="1.jpg" alt="Memory 1"><div class="heart"></div></div>
-      <div class="carousel-image"><img src="2.jpg" alt="Memory 2"><div class="heart"></div></div>
-      <div class="carousel-image"><img src="3.jpg" alt="Memory 3"><div class="heart"></div></div>
-      <div class="carousel-image"><img src="4.jpg" alt="Memory 4"><div class="heart"></div></div>
-      <div class="carousel-image"><img src="5.jpg" alt="Memory 5"><div class="heart"></div></div>
-    </div>
+  <div class="carousel" id="carousel">
+    <span class="heart">❤️</span>
+    <img src="1.jpg" class="active">
+    <img src="2.jpg">
+    <img src="3.jpg">
+    <img src="4.jpg">
+    <img src="5.jpg">
   </div>
 
-  <!-- Music Player -->
-  <audio id="birthdayMusic" loop>
-    <source src="enna_sona.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
+  <!-- Background Music -->
+  <audio id="bg-music" autoplay loop>
+    <source src="enna_sona.mp3" type="audio/mp3">
   </audio>
 
-  <!-- Floating Button -->
-  <button id="musicToggle">🎵</button>
-
   <script>
-    // Open Carousel
-    document.getElementById("openCarousel").addEventListener("click", () => {
-      document.getElementById("carouselOverlay").style.display = "flex";
-    });
+    let index = 0;
+    let interval;
 
-    // Music Toggle
-    const music = document.getElementById("birthdayMusic");
-    const musicToggle = document.getElementById("musicToggle");
-    let isPlaying = false;
+    function startCarousel() {
+      const carousel = document.getElementById("carousel");
+      const images = carousel.querySelectorAll("img");
+      const heart = carousel.querySelector(".heart");
+      carousel.style.display = "block";
 
-    musicToggle.addEventListener("click", () => {
-      if (isPlaying) {
-        music.pause();
-        musicToggle.textContent = "🎵";
-      } else {
-        music.play();
-        musicToggle.textContent = "⏸️";
-      }
-      isPlaying = !isPlaying;
-    });
+      interval = setInterval(() => {
+        images[index].classList.remove("active");
+        index = (index + 1) % images.length;
+        images[index].classList.add("active");
+
+        // Heart animation
+        heart.style.animation = "none";
+        void heart.offsetWidth; // reset
+        heart.style.animation = "heartBeat 1s ease";
+      }, 3000);
+    }
   </script>
-</body>
-</html>- Floating Music Toggle Button -->
-    <button class="music-toggle" id="musicToggle">
-        <i class="fas fa-music"></i>
-    </button>
-    
-    <!-- Audio element -->
-    <audio id="birthdayMusic" loop>
-        <source src="enna_sona.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-    </audio>
-    
-    <script>
-        // Music toggle
-        const music = document.getElementById("birthdayMusic");
-        const musicToggle = document.getElementById("musicToggle");
-        let isPlaying = false;
-
-        musicToggle.addEventListener("click", () => {
-            if (isPlaying) {
-                music.pause();
-                musicToggle.innerHTML = '<i class="fas fa-music"></i>';
-            } else {
-                music.play();
-                musicToggle.innerHTML = '<i class="fas fa-pause"></i>';
-            }
-            isPlaying = !isPlaying;
-        });
-
-        // Particles
-        function createParticles() {
-            const particlesContainer = document.querySelector('.particles');
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.className = 'particle';
-                particle.style.left = Math.random() * 100 + '%';
-                particle.style.width = particle.style.height = (Math.random() * 5 + 2) + 'px';
-                particle.style.animationDelay = Math.random() * 15 + 's';
-                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
-                particlesContainer.appendChild(particle);
-            }
-        }
-        createParticles();
-
-        // Confetti
-        function createConfetti() {
-            const confettiContainer = document.querySelector('.confetti');
-            for (let i = 0; i < 100; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti-piece';
-                confetti.style.left = Math.random() * 100 + '%';
-                confetti.style.animationDelay = Math.random() * 3 + 's';
-                confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
-                confettiContainer.appendChild(confetti);
-            }
-        }
-        createConfetti();
-    </script>
 </body>
 </html>
