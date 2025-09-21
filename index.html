@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,61 +65,62 @@
     }
     .circle-btn:hover {
       background: #ff3b2e;
-    }/* Carousel Overlay */
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.9);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  flex-direction: column;
-}
-.carousel {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  overflow: hidden;
-  border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-}
-.carousel img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity 1s ease;
-}
-.carousel img.active {
-  opacity: 1;
-}
+    }
 
-/* Heart animation overlay */
-.like-heart {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0);
-  font-size: 80px;
-  color: white;
-  opacity: 0;
-  animation: none;
-  pointer-events: none;
-}
-@keyframes likeAnimation {
-  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
-  30% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
-  100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
-}
+    /* Carousel Overlay */
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      flex-direction: column;
+    }
+    .carousel {
+      position: relative;
+      width: 300px;
+      height: 400px;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .carousel img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .carousel img.active {
+      opacity: 1;
+    }
 
+    /* Heart animation overlay */
+    .like-heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      font-size: 80px;
+      color: white;
+      opacity: 0;
+      animation: none;
+      pointer-events: none;
+    }
+    @keyframes likeAnimation {
+      0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+      30% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+      100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0; }
+    }
   </style>
 </head>
 <body>
@@ -128,7 +130,10 @@
     <h2>Dear <span style="color:yellow;">Dhivani Thakur</span> <span class="heart">❤</span></h2>
     <p>You’re the most amazing friend! Wishing you endless happiness, love, and success on your special day. 🥳✨</p>
     <button class="circle-btn" onclick="openCarousel()">Click Here</button>
-  </div>  <!-- Carousel Overlay -->  <div class="overlay" id="overlay">
+  </div>
+
+  <!-- Carousel Overlay -->
+  <div class="overlay" id="overlay">
     <div class="carousel" id="carousel">
       <img src="https://picsum.photos/id/1015/300/400" class="active">
       <img src="https://picsum.photos/id/1016/300/400">
@@ -137,7 +142,9 @@
       <img src="https://picsum.photos/id/1045/300/400">
       <div class="like-heart" id="likeHeart">❤</div>
     </div>
-  </div>  <script>
+  </div>
+
+  <script>
     // Confetti Effect
     const canvas = document.getElementById('confetti');
     const ctx = canvas.getContext('2d');
@@ -217,5 +224,6 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     });
-  </script></body>
+  </script>
+</body>
 </html>
